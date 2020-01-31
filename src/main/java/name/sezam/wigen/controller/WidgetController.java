@@ -22,18 +22,18 @@ import java.util.*;
 @RestController
 @RequestMapping("/api")
 public class WidgetController {
-
-    @Autowired
     private WidgetRepository widgetRepository;
 
     private List<Widget> list;
 
     @Value("${wigen.rate_limit}")
-    private Integer rateLimit;
+    private Integer rateLimit=100;
 
     final RateLimiter rateLimiter;
 
-    public WidgetController() {
+    @Autowired
+    public WidgetController(WidgetRepository widgetRepository) {
+        this.widgetRepository = widgetRepository;
         rateLimiter = RateLimiter.create(rateLimit / 60);
         list = widgetRepository.findAll();
     }

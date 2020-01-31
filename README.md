@@ -108,3 +108,17 @@ API должно соответствовать REST архитектуре.
     
         spring.datasource.url=jdbc:h2:file:./h2db
         #если закомментировать то храним в памяти, иначе в файле в корне проекта
+
+
+
+
+class Branch{
+    Branch left;
+    Branch right;
+    
+    void print(){
+        if(left 1= null) left.print();
+        if(right != null) right.print();
+        System.out.println(hashCode());
+    }
+}
